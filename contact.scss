@@ -1,0 +1,194 @@
+$a-color:#eb2164;
+$text-color: #3c4858;
+$background-gradient: linear-gradient(
+    45deg, rgba(168,29,132,1) 0%, rgb(234,57,111) 100%);
+
+@mixin topnav {
+position: fixed; 
+top: 0; 
+width: 100%;
+padding: 0px 7px;
+height: 30px;
+background-color: #1d2327;
+color:#c3c4c7;;
+display: flex;
+justify-content: space-between;
+align-items: center;
+.register{
+    width: 30%;
+    display:flex;
+    justify-content: flex-end;
+    gap: 3%;
+}
+a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 14px;
+    &:hover{
+        color: rgb(6, 166, 240);
+    }
+}
+}
+@mixin navmenu {
+position: fixed; 
+top: 0; 
+width: 100%;
+color: #555;
+background-color: #fff;
+display: flex;
+justify-content: space-around;
+height: 70px;
+align-items: center;
+font-family: 'Roboto',Helvetica,Arial,sans-serif;
+box-shadow: -1px 8px 10px -8px rgba(0,0,0,0.74);
+a{
+    text-decoration: none;
+    color: $text-color;
+}
+
+.pagelinks{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5%;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 70%;
+    a:not(.more){
+        &:hover{
+            color:$a-color;
+        }
+        &:active{
+            color:$a-color;
+        }
+    }
+    
+    .more{
+        padding: 15px 15px;
+        background-color:$a-color;
+        border-radius: 20px;
+        color:whitesmoke;
+        &:hover{
+            color:gainsboro;
+            box-shadow: -5px 10px 16px -9px rgba(235,33,100,0.37);
+            -webkit-box-shadow: -5px 10px 16px -9px rgba(235,33,100,0.37);
+            -moz-box-shadow: -5px 10px 16px -9px rgba(235,33,100,0.37);
+            }
+
+
+    }
+}
+
+}
+@mixin linkstyle{
+text-decoration: none;
+color:$a-color;
+    &:hover{
+    color:palevioletred;
+    }
+}
+
+@mixin footerstyle{
+        background-color: #323437;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        padding:0% 5%;
+        color: white;
+        align-items: center;
+        font-family: 'Roboto',Helvetica,Arial,sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+
+        .footer{
+            width: 50%; 
+            a{
+                text-decoration: none;
+                color:white;
+                padding-right: 5%;
+            }
+        }
+}
+    
+
+body{
+    margin: 0%;
+    background-color: white;
+
+    .top-wrapper{
+        .wpadmin{
+            @include topnav
+
+        }
+        .nav-menu{
+            @include navmenu;
+        }
+    }
+
+    .page-content-wrapper{
+        display: flex;
+        justify-content: center;
+        gap:10%;
+        .left-side-inputs{
+            padding-top: 1%;
+            color: $text-color;
+            h2{
+                font-size: 42px;
+            }
+            .form-group{
+                padding-top: 3%;
+                display: flex;
+                flex-direction: column;
+                input[type="text"], textarea {
+                    width: 100%; 
+                    padding: 12px; 
+                    border: 1px solid #ccc; 
+                    border-radius: 4px; 
+                    box-sizing: border-box; 
+                    margin-top: 6px; 
+                    margin-bottom: 16px;
+                    resize: vertical;
+                }
+                input[type=submit] {
+                    background-color: $a-color;
+                    color: white;
+                    padding: 12px 20px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                  }
+            }
+        }  
+
+        .right-side-contacts{
+            padding: 6% 0;
+            color: $text-color;
+            h4{
+                font-size: 26px;
+                i{
+                    color:$a-color;
+                    font-size: 28px;
+                }
+
+            }
+ 
+        }
+
+    }
+
+
+    footer{
+            @include footerstyle
+            }
+         
+    @media (max-width: 1200px){
+        .page-content-wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+        
+    
+}
